@@ -64,7 +64,7 @@ Following videos were produced in Korean, translated into English, and the audio
 ### 7. K-Means Clustering
 * [MXML-7-01] [Objective function, Local minimum problem](https://youtu.be/w5fjvhPATPY)
 * [MXML-7-02] [Implement K-Means clustering from scratch](https://youtu.be/hToqjr5Kx4Q)
-* [MXML-7-03] [K-Means++ algorithm, implementation from scratch]
+* [MXML-7-03] [K-Means++ algorithm, implementation from scratch](https://youtu.be/ga3sofscV1E)
 * [MXML-7-04] [How to find the optimal number of clusters - Elbow, Silhouette]
 
 ### 8. Random Forest
