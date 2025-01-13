@@ -33,12 +33,12 @@ x, y = reg_data(a=0.5, b=0.3, n=1000, s=0.2)
 X = np.hstack([np.ones([x.shape[0], 1]), x])
 REG_CONST = 0.01   # regularization constant
 
-# Loss function : Mean Squared Error
+# Regularized loss function : Mean Squared Error
 def ols_loss(W, args):
     e = np.dot(W, X.T) - y
     mse = np.mean(np.square(e))  # mean squared error
 
-    # we typically do not penalize the intercept term.
+    # We typically do not penalize the intercept term.
     loss = mse + REG_CONST * np.sum(np.square(W[1:]))
     
     # save W and loss
