@@ -37,7 +37,9 @@ REG_CONST = 0.01   # regularization constant
 def ols_loss(W, args):
     e = np.dot(W, X.T) - y
     mse = np.mean(np.square(e))  # mean squared error
-    loss = mse + REG_CONST * np.sum(np.square(W))
+
+    # we typically do not penalize the intercept term.
+    loss = mse + REG_CONST * np.sum(np.square(W[1:]))
     
     # save W and loss
     if args[0] == True:
