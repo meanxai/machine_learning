@@ -98,10 +98,15 @@ def proximity_matrix(model, x, normalize=0):
     # Apply trees in the forest to X, return leaf indices.
     leaf = model.apply(x)  # shape = (x.shape[0], n_tree)
     
-    pm = np.zeros(shape=(x.shape[0], x.shape[0]))
-    for i in range(n_tree):
-        t = leaf[:, i]
-        pm += np.equal.outer(t, t) * 1.
+    pm = (
+        (leaf[:, None, :] == leaf[None, :, :])
+        .sum(axis=-1)
+    )
+    # # the above is equivalent to:
+    # pm = np.zeros(shape=(x.shape[0], x.shape[0]))
+    # for i in range(n_tree):
+    #     t = leaf[:, i]
+    #     pm += np.equal.outer(t, t) * 1.
 
     np.fill_diagonal(pm, 0)    
     if normalize == 0:

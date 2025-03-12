@@ -23,18 +23,22 @@ x, y = make_blobs(n_samples=600, n_features=2,
 
 # Create Proximity matrix
 # normalize = 0: pm / n_tree
-# normalize â‰  0: Normalize columns to sum to 1
+# normalize ï¿½  0: Normalize columns to sum to 1
 def proximity_matrix(model, x, normalize=0):
     n_tree = len(model.estimators_)
     
     # Apply trees in the forest to X, return leaf indices.
     leaf = model.apply(x)  # shape = (x.shape[0], n_tree)
     
-    pm = np.zeros(shape=(x.shape[0], x.shape[0]))
-    for i in range(n_tree):
-        t = leaf[:, i]
-        p = np.equal.outer(t, t) * 1.
-        pm += p
+    pm = (
+        (leaf[:, None, :] == leaf[None, :, :])
+        .sum(axis=-1)
+    )
+    # # the above is equivalent to:
+    # pm = np.zeros(shape=(x.shape[0], x.shape[0]))
+    # for i in range(n_tree):
+    #     t = leaf[:, i]
+    #     pm += np.equal.outer(t, t) * 1.
 
     np.fill_diagonal(pm, 0)    
     if normalize == 0:
