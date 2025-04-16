@@ -3,12 +3,12 @@ These codes are used in the machine learning online course provided by www.youtu
 
 ### 1. K-Nearest Neighbors (KNN)
 * [MXML-1-01] Basic algorighm for KNN classification
-* [MXML-1-02] Implement KNN classification from scratch
-* [MXML-1-03] Curse of Dimensionality, Lazy learner
+* [MXML-1-02] Optimal K value and decision boundary
+* [MXML-1-03] The curse of dimensionality and lazy learner
 * [MXML-1-04] Weighted KNN (WKNN)
-* [MXML-1-05] Handling categorical data
-* [MXML-1-06] KNN regression algorithm
-
+* [MXML-1-05] Handling categorical data: Matching coefficient and Jaccard coefficient
+* [MXML-1-06] Handling categorical data: Inverse Occurrence Frequency (IOF) similarity
+* [MXML-1-07] KNN regression algorithm
 
 ### 2. Decision Tree
 * [MXML-2-01] Introduction to Decision Tree
