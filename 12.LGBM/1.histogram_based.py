@@ -35,7 +35,7 @@ def find_local_split_point(f, s_point):
         
         # After splitting the parent node, calculate the scores of its children.
         GL += g[left].sum()
-        HL += (h[left] * (1. - h[left])).sum()
+        HL += h[left].sum()
         GR = G - GL
         HR = H - HL
         
@@ -62,8 +62,7 @@ g1_parent, f1_bin = np.histogram(x[:, 1], n_bin, weights=g)  # feature 1
 # Find the best split point of each feature
 G = g.sum()
 H = h.sum()
-r = 0.0
-gamma = 0.0
+r = 0.01
 p_score = (G ** 2) / (H + r)    # parent's score before splitting the node
 
 # Find global best split point through parallel processing
